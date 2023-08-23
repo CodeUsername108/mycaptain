@@ -1,0 +1,13 @@
+def positive(lst):
+    positive_nums = [num for num in lst if num > 0]
+    print(positive_nums)
+
+list1 = []
+n = int(input("Enter number of elements : "))
+for i in range(0, n):
+    element = int(input())
+    list1.append(element) 
+print("input: ")
+print(list1)
+print("output: ")
+positive(list1)
