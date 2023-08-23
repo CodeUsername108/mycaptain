@@ -1,0 +1,11 @@
+n = int(input("enter number: "))
+n1=1
+n2=0
+values = range(n)
+print("Fibonacci series")
+print("0")
+for i in values:
+    nth=n2+n1
+    n1=n2
+    n2=nth
+    print(nth)
