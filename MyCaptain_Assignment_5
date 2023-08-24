@@ -1,0 +1,9 @@
+condition = True
+while (condition):
+    student_input = input("Enter details of student: ")
+    print(student_input)
+    yesno= input("want to add another detail? type yes or no: ")
+    if yesno == "yes":
+        condition = True
+    elif yesno == "no":
+        condition = False
