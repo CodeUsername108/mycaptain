@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+<body>
+    <h1>Your Cart</h1>
+
+    <h2>Products</h2>
+    <ul>
+        <li>
+            <span>Product 1 - $10</span>
+            <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+        </li>
+        <li>
+            <span>Product 2 - $15</span>
+            <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+        </li>
+        <!-- Add more products here -->
+    </ul>
+
+    <h2>Cart</h2>
+    <ul id="cart">
+        <!-- Cart items will be displayed here -->
+    </ul>
+
+    <h2>Total: $<span id="total">0</span></h2>
+
+    <button onclick="placeOrder()">Place Order</button>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(productName, productPrice) {
+            cart.push({ name: productName, price: productPrice });
+            total += productPrice;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('cart');
+            const totalElement = document.getElementById('total');
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - $${item.price}`;
+                cartList.appendChild(listItem);
+            });
+            totalElement.textContent = total;
+        }
+
+        function placeOrder() {
+            // In a real application, you would handle payment processing here
+            alert('Order placed! Total amount: $' + total);
+            cart = [];
+            total = 0;
+            updateCart();
+        }
+    </script>
+</body>
+</html>
